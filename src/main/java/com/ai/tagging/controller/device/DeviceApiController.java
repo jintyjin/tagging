@@ -1,21 +1,32 @@
 package com.ai.tagging.controller.device;
 
-import com.ai.tagging.entity.device.Device;
-import com.ai.tagging.repository.device.DeviceRepository;
+import com.ai.tagging.dto.device.ResponseDeviceDto;
+import com.ai.tagging.service.DeviceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class DeviceApiController {
 
-    private final DeviceRepository deviceRepository;
+    private final DeviceService deviceService;
 
-    @PostMapping("/request/devices")
-    public List<Device> deviceList() {
-        return deviceRepository.findAll();
+
+    @GetMapping("/request/devices")
+    public ResponseDeviceDto deviceList() {
+        ResponseDeviceDto responseDeviceDto = new ResponseDeviceDto();
+
+        try {
+            responseDeviceDto.setStstus("200");
+            responseDeviceDto.setDeviceDtoList(deviceService.deviceDtoList());
+        } catch (Exception e) {
+            responseDeviceDto.setStstus("500");
+            throw e;
+        } finally {
+            return responseDeviceDto;
+        }
     }
 }

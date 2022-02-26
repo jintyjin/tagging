@@ -1,4 +1,4 @@
-package com.ai.tagging.dto;
+package com.ai.tagging.dto.device;
 
 import lombok.Data;
 

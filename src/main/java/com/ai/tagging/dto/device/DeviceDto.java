@@ -1,4 +1,4 @@
-package com.ai.tagging.dto;
+package com.ai.tagging.dto.device;
 
 import com.ai.tagging.entity.device.Device;
 import com.ai.tagging.entity.device.RtspUrl;

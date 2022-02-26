@@ -1,13 +1,11 @@
-package com.ai.tagging.dto;
+package com.ai.tagging.dto.member;
 
-import com.ai.tagging.entity.Live;
-import com.ai.tagging.entity.device.Device;
+import com.ai.tagging.dto.device.DeviceDto;
 import com.ai.tagging.entity.member.Grade;
 import com.ai.tagging.entity.member.Member;
 import com.ai.tagging.entity.member.MemberStatus;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
