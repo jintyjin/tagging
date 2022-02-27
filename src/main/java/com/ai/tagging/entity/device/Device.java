@@ -35,13 +35,16 @@ public class Device extends DataJpaBaseEntity {
 
     private String macAddress;
 
+    @Enumerated(EnumType.STRING)
+    private DeviceStatus deviceStatus;
+
     @OneToMany(mappedBy = "device")
     private List<RtspUrl> rtspUrlList = new ArrayList<>();
 
     @OneToMany(mappedBy = "device")
     private List<Live> liveList = new ArrayList<>();
 
-    public Device(String loginId, String pw, int ch, String name, String ip, int port, String macAddress) {
+    public Device(String loginId, String pw, int ch, String name, String ip, int port, String macAddress, DeviceStatus status) {
         this.loginId = loginId;
         this.pw = pw;
         this.name = name;
@@ -49,5 +52,6 @@ public class Device extends DataJpaBaseEntity {
         this.ip = ip;
         this.port = port;
         this.macAddress = macAddress;
+        this.deviceStatus = status;
     }
 }

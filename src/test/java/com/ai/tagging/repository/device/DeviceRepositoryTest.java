@@ -1,6 +1,7 @@
 package com.ai.tagging.repository.device;
 
 import com.ai.tagging.entity.device.Device;
+import com.ai.tagging.entity.device.DeviceStatus;
 import com.ai.tagging.entity.device.RtspUrl;
 import lombok.RequiredArgsConstructor;
 import org.assertj.core.api.Assertions;
@@ -22,7 +23,7 @@ class DeviceRepositoryTest {
     @Rollback(value = false)
     void 장비_저장() {
         //given
-        Device device = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8080, "00:00:0c:28:06");
+        Device device = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8080, "00:00:0c:28:06", DeviceStatus.TURN_OFF);
 
         //when
         Device savedDevice = deviceRepository.save(device);

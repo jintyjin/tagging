@@ -2,6 +2,7 @@ package com.ai.tagging;
 
 import com.ai.tagging.entity.Live;
 import com.ai.tagging.entity.device.Device;
+import com.ai.tagging.entity.device.DeviceStatus;
 import com.ai.tagging.entity.device.RtspUrl;
 import com.ai.tagging.entity.member.Address;
 import com.ai.tagging.entity.member.Grade;
@@ -27,13 +28,13 @@ public class BasicComponent {
 
     @PostConstruct
     public void initSampleData() {
-        Member member1 = new Member("유저1", "user1", "1234", "010-1234-5674", new Address("Seoul", "Daerim", "11111"), MemberStatus.Normal, Grade.MEMBER);
-        Member member2 = new Member("유저2", "user2", "3234", "010-1234-5673", new Address("Incheon", "Sentral", "11112"), MemberStatus.Normal, Grade.MEMBER);
+        Member member1 = new Member("유저1", "user1", "1234", "010-1234-5674", new Address("Seoul", "Daerim", "11111"), MemberStatus.JOINED, Grade.MEMBER);
+        Member member2 = new Member("유저2", "user2", "3234", "010-1234-5673", new Address("Incheon", "Sentral", "11112"), MemberStatus.NORMAL, Grade.MEMBER);
 
-        Device device1 = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8081, "00:00:0c:28:01");
-        Device device2 = new Device("nvr02", "3234", 3, "장비3", "127.0.0.3", 8083, "00:00:0c:28:03");
-        Device device3 = new Device("nvr03", "5234", 5, "장비5", "127.0.0.5", 8085, "00:00:0c:28:05");
-        Device device4 = new Device("nvr04", "7234", 7, "장비7", "127.0.0.7", 8087, "00:00:0c:28:07");
+        Device device1 = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8081, "00:00:0c:28:01", DeviceStatus.BROKEN);
+        Device device2 = new Device("nvr02", "3234", 3, "장비3", "127.0.0.3", 8083, "00:00:0c:28:03", DeviceStatus.TURN_OFF);
+        Device device3 = new Device("nvr03", "5234", 5, "장비5", "127.0.0.5", 8085, "00:00:0c:28:05", DeviceStatus.FIXING);
+        Device device4 = new Device("nvr04", "7234", 7, "장비7", "127.0.0.7", 8087, "00:00:0c:28:07", DeviceStatus.TURN_ON);
 
         RtspUrl rtspUrl1 = new RtspUrl("rtsp://127.0.0.1/onvif-media", device1);
         RtspUrl rtspUrl2 = new RtspUrl("rtsp://127.0.0.3/onvif-media", device2);
