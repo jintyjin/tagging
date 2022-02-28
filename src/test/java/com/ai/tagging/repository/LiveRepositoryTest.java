@@ -38,11 +38,10 @@ class LiveRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(value = false)
     void live_test() {
         //given
-        Member member1 = new Member("유저1", "user1", "1234", "010-1234-5674", new Address("Seoul", "Daerim", "11111"), MemberStatus.JOINED, Grade.MEMBER);
-        Member member2 = new Member("유저2", "user2", "3234", "010-1234-5673", new Address("Incheon", "Sentral", "11112"), MemberStatus.JOINED, Grade.MEMBER);
+        Member member1 = new Member("유저44", "user1", "1234", "010-1234-5674", new Address("Seoul", "Daerim", "11111"), MemberStatus.JOINED, Grade.MEMBER);
+        Member member2 = new Member("유저55555", "user2", "3234", "010-1234-5673", new Address("Incheon", "Sentral", "11112"), MemberStatus.JOINED, Grade.MEMBER);
 
         Device device1 = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8081, "00:00:0c:28:01", DeviceStatus.TURN_OFF);
         Device device2 = new Device("nvr02", "3234", 3, "장비3", "127.0.0.3", 8083, "00:00:0c:28:03", DeviceStatus.FIXING);

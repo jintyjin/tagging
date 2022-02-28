@@ -20,10 +20,9 @@ class DeviceRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(value = false)
     void 장비_저장() {
         //given
-        Device device = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8080, "00:00:0c:28:06", DeviceStatus.TURN_OFF);
+        Device device = new Device("nvr06", "1236", 6, "장비6", "127.0.0.1", 8086, "00:00:0c:28:06", DeviceStatus.TURN_OFF);
 
         //when
         Device savedDevice = deviceRepository.save(device);

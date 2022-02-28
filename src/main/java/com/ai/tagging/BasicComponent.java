@@ -26,9 +26,9 @@ public class BasicComponent {
     private final RtspRepository rtspRepository;
     private final LiveRepository liveRepository;
 
-    @PostConstruct
+//    @PostConstruct
     public void initSampleData() {
-        Member member1 = new Member("유저1", "user1", "1234", "010-1234-5674", new Address("Seoul", "Daerim", "11111"), MemberStatus.JOINED, Grade.MEMBER);
+        Member member1 = new Member("유저111", "user1", "1234", "010-1234-5674", new Address("Seoul", "Daerim", "11111"), MemberStatus.JOINED, Grade.MEMBER);
         Member member2 = new Member("유저2", "user2", "3234", "010-1234-5673", new Address("Incheon", "Sentral", "11112"), MemberStatus.NORMAL, Grade.MEMBER);
 
         Device device1 = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8081, "00:00:0c:28:01", DeviceStatus.BROKEN);

@@ -20,7 +20,6 @@ class RtspRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(value = false)
     void rtsp_save() {
         //given
         Device device = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8080, "00:00:0c:28:06", DeviceStatus.FIXING);
@@ -36,7 +35,6 @@ class RtspRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(value = false)
     void rtsp_delete() {
         //given
         Device device = new Device("nvr01", "1234", 1, "장비1", "127.0.0.1", 8080, "00:00:0c:28:06", DeviceStatus.BROKEN);

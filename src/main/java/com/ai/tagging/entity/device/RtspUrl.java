@@ -26,6 +26,9 @@ public class RtspUrl {
     public RtspUrl(String rtspUrl, Device device) {
         this.rtspUrl = rtspUrl;
         this.device = device;
+        if (device.getRtspUrlList().contains(this)) {
+            device.getRtspUrlList().remove(this);
+        }
         device.getRtspUrlList().add(this);
     }
 }

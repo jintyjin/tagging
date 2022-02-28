@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,10 +21,10 @@ class MemberRepositoryTest {
     MemberRepository memberRepository;
 
     @Test
-    @Rollback(value = false)
+    @Transactional
     void testMember() {
         //given
-        Member member = new Member("유저1", "user1", "1234", "010-1234-5678", new Address("Seoul", "Daerim", "11111"), MemberStatus.NORMAL, Grade.MEMBER);
+        Member member = new Member("유저3333", "user1", "1234", "010-1234-5678", new Address("Seoul", "Daerim", "11111"), MemberStatus.NORMAL, Grade.MEMBER);
 
         //when
         Long savedId = memberRepository.save(member);
@@ -32,9 +33,6 @@ class MemberRepositoryTest {
         //then
         assertThat(findMember.getId()).isEqualTo(member.getId());
         assertThat(findMember.getName()).isEqualTo(member.getName());
-
-        Member member2 = new Member("유저1", "user1", "1234", "010-1234-5678", new Address("Seoul", "Daerim", "11111"), MemberStatus.NORMAL, Grade.MEMBER);
-        Member member3 = new Member("유저1", "user1", "1234", "010-1234-5678", new Address("Seoul", "Daerim", "11111"), MemberStatus.NORMAL, Grade.MEMBER);
 
     }
 }
