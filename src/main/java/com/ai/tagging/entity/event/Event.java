@@ -1,6 +1,7 @@
 package com.ai.tagging.entity.event;
 
 import com.ai.tagging.entity.device.Device;
+import com.ai.tagging.entity.event.box.Box;
 import com.ai.tagging.entity.event.image.Image;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,16 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Event {
 
     @Id @GeneratedValue
     @Column(name = "event_id")
     private Long id;
 
-    @Column(name = "event_name")
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private EventName eventName;
 
     @Column(name = "event_time")
     private LocalDateTime time;
@@ -37,8 +38,8 @@ public class Event {
     @OneToMany(mappedBy = "event")
     private List<Box> boxes = new ArrayList<>();
 
-    public Event(String name, LocalDateTime time, Device device, Image image) {
-        this.name = name;
+    public Event(EventName eventName, LocalDateTime time, Device device, Image image) {
+        this.eventName = eventName;
         this.time = time;
         this.device = device;
         this.image = image;
