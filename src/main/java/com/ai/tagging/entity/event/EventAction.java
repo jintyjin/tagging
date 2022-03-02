@@ -25,12 +25,12 @@ public class EventAction {
     @Enumerated(EnumType.STRING)
     private EventName eventName;
 
-    @OneToMany(mappedBy = "eventAction")
-    private List<Action> actions = new ArrayList<>();
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "device_id")
     private Device device;
+
+    @OneToMany(mappedBy = "eventAction")
+    private List<Action> actions = new ArrayList<>();
 
     public EventAction(EventSource eventSource, EventName eventName, Device device) {
         this.eventSource = eventSource;

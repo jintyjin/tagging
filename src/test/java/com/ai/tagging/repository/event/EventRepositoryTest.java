@@ -35,7 +35,7 @@ class EventRepositoryTest {
         deviceRepository.save(device);
         Image image = new Image("1.jpg", "1_thumb.jpg", 1920, 1080);
         imageRepository.save(image);
-        Event event = new Event(EventName.KATER_Falldown_Detection, time, device, image);
+        Event event = new Event(EventName.KATER_FALLDOWN_DETECTION, time, device, image);
         Event savedEvent = eventRepository.save(event);
         Event findEvent = eventRepository.findById(savedEvent.getId()).get();
 
