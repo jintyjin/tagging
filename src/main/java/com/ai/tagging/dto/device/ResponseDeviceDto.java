@@ -7,6 +7,6 @@ import java.util.List;
 @Data
 public class ResponseDeviceDto {
 
-    private String ststus;
+    private String status;
     private List<DeviceDto> deviceDtoList;
 }

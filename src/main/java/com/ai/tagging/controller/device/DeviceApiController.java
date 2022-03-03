@@ -20,10 +20,10 @@ public class DeviceApiController {
         ResponseDeviceDto responseDeviceDto = new ResponseDeviceDto();
 
         try {
-            responseDeviceDto.setStstus("200");
+            responseDeviceDto.setStatus("200");
             responseDeviceDto.setDeviceDtoList(deviceService.deviceDtoList());
         } catch (Exception e) {
-            responseDeviceDto.setStstus("500");
+            responseDeviceDto.setStatus("500");
             throw e;
         } finally {
             return responseDeviceDto;
