@@ -14,12 +14,12 @@ class RejectRepositoryImplTest {
     void save() {
         //given
         RejectRepository rejectRepository = new RejectRepositoryImpl();
-        final int ch = 1;
+        final int CH = 1;
 
         //when
         LocalDateTime now = LocalDateTime.of(2022, 3, 3, 17, 30, 0);
-        rejectRepository.saveTime(ch, now);
-        LocalDateTime time = rejectRepository.findTimeByCh(ch).get();
+        rejectRepository.saveTime(CH, now);
+        LocalDateTime time = rejectRepository.findTimeByCh(CH).get();
 
         //then
         assertThat(now).isEqualTo(time);
@@ -31,13 +31,13 @@ class RejectRepositoryImplTest {
         //given
         final int CH = 1;
         final int REJECT_HOUR = 12;
-        LocalDateTime now = LocalDateTime.of(2022, 3, 3, 17, 37, 0);
+        LocalDateTime now = LocalDateTime.of(2023, 3, 3, 17, 37, 0);
         RejectRepository rejectRepository = new RejectRepositoryImpl();
         rejectRepository.saveTime(CH, now.plusHours(REJECT_HOUR));
 
         //when
         boolean isRejectNow = rejectRepository.compareTime(CH, LocalDateTime.now());
-        LocalDateTime afterReject = LocalDateTime.of(2022, 3, 3, 17, 38, 0);
+        LocalDateTime afterReject = LocalDateTime.of(2023, 3, 3, 17, 38, 0);
         boolean isRejectAfter = rejectRepository.compareTime(CH, afterReject.plusHours(REJECT_HOUR));
 
         //then

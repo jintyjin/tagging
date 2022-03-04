@@ -8,7 +8,8 @@ import java.util.List;
 @Data
 public class ResponseMembersDto {
 
-    private String status;
+    private int status;
+    private String info;
     private List<MemberDto> memberDtoList;
 
 }
